@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 public class Display extends javax.swing.JFrame{
     DisplayPanel p = new DisplayPanel();
     public Display() {
-        setTitle("Stuff Downloader");//I know it said video but i was wrong i am pea brain and you can do way more with youtube-dl you can watch poirn and that is cool if you don't tell your parents thats cool so thats why its stuff downloader
+        setTitle("Stuff Downloader");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
