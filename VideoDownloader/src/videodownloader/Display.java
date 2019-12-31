@@ -11,7 +11,7 @@ import javax.swing.JFrame;
  *
  * @author Edward Potapov
  */
-public class Display extends javax.swing.JFrame{
+public class Display extends javax.swing.JFrame{ //creates the window
     DisplayPanel p = new DisplayPanel();
     public Display() {
         setTitle("Stuff Downloader");
