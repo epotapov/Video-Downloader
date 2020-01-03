@@ -18,7 +18,7 @@ public class VideoDownloader { //contains the code
         String location = "C:\\Users\\Edward Potapov\\Documents\\NetBeansProjects\\Video-Downloader\\VideoDownloader\\youtube-dl"; //yeah im working on it
         Runtime rt = Runtime.getRuntime();
         try {
-            rt.exec("cmd.exe /c start cd \""+ location +"\" && dir");
+            rt.exec("cmd.exe /c cd \""+ location +"\" & start cmd.exe /k \"youtube-dl "+ Link +"\"");
 
         } catch (IOException e) {
             e.printStackTrace();
