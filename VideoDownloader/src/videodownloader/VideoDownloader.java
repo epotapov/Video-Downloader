@@ -15,10 +15,10 @@ public class VideoDownloader { //contains the code
         d = new Display();
     }
     public static void download(String Link) {
-        String location = "C:\\Users\\Edward Potapov\\Documents\\NetBeansProjects\\Video-Downloader\\VideoDownloader\\youtube-dl"; //yeah im working on it
+        String location = "C:\\Users\\Edward Potapov\\Documents\\NetBeansProjects\\Video-Downloader\\VideoDownloader\\youtube-dl"; 
         Runtime rt = Runtime.getRuntime();
         try {
-            rt.exec("cmd.exe /c cd \""+ location +"\" & start cmd.exe /k \"youtube-dl "+ Link +"\"");
+            rt.exec("cmd.exe /c cd \"youtube-dl\" & start cmd.exe /k \"youtube-dl "+ Link +"\"");
 
         } catch (IOException e) {
             e.printStackTrace();
