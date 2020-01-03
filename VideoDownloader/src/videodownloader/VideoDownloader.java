@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package videodownloader;
-
+import java.io.*;
 /**
  *
  * @author Edward Potapov
@@ -15,11 +15,13 @@ public class VideoDownloader { //contains the code
         d = new Display();
     }
     public static void download(String Link) {
-        String location = "C:\\Users\\Edward Potapov\\Documents\\NetBeansProjects\\Video-Downloader\\VideoDownloader\\youtube-dl\\youtube-dl " + Link; //yeah im working on it
+        String location = "C:\\Users\\Edward Potapov\\Documents\\NetBeansProjects\\Video-Downloader\\VideoDownloader\\youtube-dl"; //yeah im working on it
+        Runtime rt = Runtime.getRuntime();
         try {
-            ProcessBuilder p = new ProcessBuilder("cmd.exe", "/c", location);
-            Process pb = p.start();
-        } catch(Exception e) {
+            rt.exec("cmd.exe /c start cd \""+ location +"\" && dir");
+
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
