@@ -17,8 +17,8 @@ public class VideoDownloader { //contains the code
     public static void download(String Link) {
         Runtime rt = Runtime.getRuntime();
         try {
-            rt.exec("cmd.exe /c cd \"youtube-dl\" & start cmd.exe /k \"youtube-dl "+ Link +"\""); //executes order 66
-
+            if (System.getProperty("os.name").contains("Windows")) 
+                rt.exec("cmd.exe /c cd \"youtube-dl\" & start cmd.exe /k \"youtube-dl "+ Link +"\""); //executes order 66
         } catch (IOException e) {
             e.printStackTrace();
         }
