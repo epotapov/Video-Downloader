@@ -19,6 +19,8 @@ public class VideoDownloader { //contains the code
         try {
             if (System.getProperty("os.name").contains("Windows")) 
                 rt.exec("cmd.exe /c cd \"youtube-dl\" & start cmd.exe /k \"youtube-dl "+ Link +"\""); //executes order 66
+            if (System.getProperty("os.name").contains("Mac OS X"))
+                rt.exec("mkdir -c cd '/usr/local/bin' & start mkdir -ltra 'youtube-dl "+ Link +"'"); //executes order 66 for mac
         } catch (IOException e) {
             e.printStackTrace();
         }
