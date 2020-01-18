@@ -22,14 +22,15 @@ public class VideoDownloader { //contains the code
             }
             if (System.getProperty("os.name").contains("Mac OS X"))
             {
-                Process p = rt.exec(new String[]{"/bin/sh","-c","cd youtube-dl & youtube-dl " + Link + " & ls"}); //executes order 66 for mac
+                Process p = rt.exec(new String[] {"/bin/sh", "-c",  "cd youtube-dl && ./youtube-dl " + Link}); //executes order 66 for mac
                 String line1;
                 BufferedReader in = new BufferedReader( new InputStreamReader(p.getInputStream()) );
                 while ((line1 = in.readLine()) != null) {
                   System.out.println(line1);
                 }
+                p.waitFor();
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
