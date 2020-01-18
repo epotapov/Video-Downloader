@@ -20,7 +20,7 @@ public class VideoDownloader { //contains the code
             if (System.getProperty("os.name").contains("Windows")) 
                 rt.exec("cmd.exe /c cd \"youtube-dl\" & start cmd.exe /k \"youtube-dl "+ Link +"\""); //executes order 66
             if (System.getProperty("os.name").contains("Mac OS X"))
-                rt.exec("/bin/bash -c ls"); //executes order 66 for mac
+                rt.exec("/usr/bin/open -a Terminal"); //executes order 66 for mac
         } catch (IOException e) {
             e.printStackTrace();
         }
