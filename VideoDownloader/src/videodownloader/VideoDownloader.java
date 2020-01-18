@@ -17,9 +17,20 @@ public class VideoDownloader { //contains the code
     public static void download(String Link) {
         Runtime rt = Runtime.getRuntime();
         try {
-            rt.exec("cmd.exe /c cd \"youtube-dl\" & start cmd.exe /k \"youtube-dl "+ Link +"\""); //executes order 66
-
-        } catch (IOException e) {
+            if (System.getProperty("os.name").contains("Windows")) {
+                rt.exec("cmd.exe /c cd \"youtube-dl\" & start cmd.exe /k \"youtube-dl "+ Link +"\""); //executes order 66
+            }
+            if (System.getProperty("os.name").contains("Mac OS X"))
+            {
+                Process p = rt.exec(new String[] {"/bin/sh", "-c",  "cd youtube-dl && ./youtube-dl " + Link}); //executes order 66 for mac
+                String line1;
+                BufferedReader in = new BufferedReader( new InputStreamReader(p.getInputStream()) );
+                while ((line1 = in.readLine()) != null) {
+                  System.out.println(line1);
+                }
+                p.waitFor();
+            }
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
