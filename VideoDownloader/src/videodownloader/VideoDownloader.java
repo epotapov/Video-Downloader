@@ -18,7 +18,9 @@ public class VideoDownloader { //contains the code
         Runtime rt = Runtime.getRuntime();
         try {
             if (System.getProperty("os.name").contains("Windows")) {
-                rt.exec("cmd.exe /c cd \"youtube-dl\" & start cmd.exe /k \"youtube-dl "+ Link +"\""); //executes order 66
+                Process p = rt.exec(new String[] {"cmd.exe", "/c",  "cd \"youtube-dl\" & cmd.exe /k \"youtube-dl \"" + Link + "\""}); //executes order 66
+                new Thread(new SyncPipe(p.getErrorStream(), System.err)).start();
+	        new Thread(new SyncPipe(p.getInputStream(), System.out)).start();
             }
             if (System.getProperty("os.name").contains("Mac OS X"))
             {

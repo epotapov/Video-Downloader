@@ -14,7 +14,7 @@ public class DisplayPanel extends javax.swing.JPanel { //ui stuff
     JButton butt;
     JLabel lab;
     static JTextField text;
-    static JTextArea area;
+    public static JTextArea area;
     static JScrollPane scroll;
     public DisplayPanel() {
         setLayout(null);
