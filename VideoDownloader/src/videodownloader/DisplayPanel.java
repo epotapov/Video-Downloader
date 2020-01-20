@@ -33,7 +33,7 @@ public class DisplayPanel extends javax.swing.JPanel { //ui stuff
         area.setBounds(10, 180, 375, 125);
         area.setEditable(false);
         scroll = new JScrollPane(area);
-        scroll.setBounds(10, 180, 375, 125);
+        scroll.setBounds(10, 180, 377, 125);
         add(scroll);
     }
     static class ButtonPress implements ActionListener {

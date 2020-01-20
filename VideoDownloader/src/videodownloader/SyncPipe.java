@@ -11,19 +11,19 @@ import java.io.OutputStream;
  * @author Edward Potapov
  */
 class SyncPipe implements Runnable {
-    private final OutputStream ostrm_;
-    private final InputStream istrm_;
-    public SyncPipe(InputStream istrm, OutputStream ostrm) {
-        istrm_ = istrm;
-        ostrm_ = ostrm;
+    private final OutputStream ostrm;
+    private final InputStream istrm;
+    public SyncPipe(InputStream istrm1, OutputStream ostrm1) {
+        istrm = istrm1;
+        ostrm = ostrm1;
     }
     public void run() {
         try {
             final byte[] buffer = new byte[1024];
-            for (int length = 0; (length = istrm_.read(buffer)) != -1; ) {
-                //DisplayPanel.area
-                String out = "";
-                ostrm_.write(buffer, 0, length);
+            for (int length = 0; (length = istrm.read(buffer)) != -1; ) {
+                String out = new String(buffer.toString());
+                DisplayPanel.area.append(out);
+                ostrm.write(buffer, 0, length);
             }
         }
         catch (Exception e) {
