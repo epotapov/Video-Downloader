@@ -18,17 +18,15 @@ public class VideoDownloader { //contains the code
         Runtime rt = Runtime.getRuntime();
         try {
             if (System.getProperty("os.name").contains("Windows")) {
-                rt.exec("cmd.exe /c cd \"youtube-dl\" & start cmd.exe /k \"youtube-dl "+ Link +"\""); //executes order 66
+                Process p = rt.exec(new String[] {"cmd.exe", "/c",  "cd \"youtube-dl\" & cmd.exe /k \"youtube-dl \"" + Link + "\""}); //executes order 66
+                new Thread(new SyncPipe(p.getErrorStream(), d.p.area)).start();
+	        new Thread(new SyncPipe(p.getInputStream(), d.p.area)).start();
             }
             if (System.getProperty("os.name").contains("Mac OS X"))
             {
                 Process p = rt.exec(new String[] {"/bin/sh", "-c",  "cd youtube-dl && ./youtube-dl " + Link}); //executes order 66 for mac
-                String line1;
-                BufferedReader in = new BufferedReader( new InputStreamReader(p.getInputStream()) );
-                while ((line1 = in.readLine()) != null) {
-                  System.out.println(line1);
-                }
-                p.waitFor();
+                new Thread(new SyncPipe(p.getErrorStream(), d.p.area)).start();
+	        new Thread(new SyncPipe(p.getInputStream(), d.p.area)).start();
             }
         } catch (Exception e) {
             e.printStackTrace();

@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package videodownloader;
+import java.awt.Font;
 import java.awt.event.*;
+import java.io.*;
 import javax.swing.*;
 /**
  *
@@ -14,11 +16,12 @@ public class DisplayPanel extends javax.swing.JPanel { //ui stuff
     JButton butt;
     JLabel lab;
     static JTextField text;
+    public JTextArea area;
+    static JScrollPane scroll;
     public DisplayPanel() {
         setLayout(null);
-        setSize(400, 300);
         butt = new JButton("Download");
-        butt.setBounds(150, 200, butt.getPreferredSize().width, butt.getPreferredSize().height);
+        butt.setBounds(150, 140, butt.getPreferredSize().width, butt.getPreferredSize().height);
         add(butt);
         butt.addActionListener(new ButtonPress());
         lab = new JLabel("<html><font size='12' color='red' face='Rockwell'>Stuff Downloader</font></html>");
@@ -26,8 +29,14 @@ public class DisplayPanel extends javax.swing.JPanel { //ui stuff
         lab.setBounds(200 - centered / 2, 30, centered, lab.getPreferredSize().height);
         add(lab);
         text = new JTextField("Enter Link");
-        text.setBounds(50, 130, 300, 20);
+        text.setBounds(50, 110, 300, 20);
         add(text);
+        area = new JTextArea();
+        area.setBounds(10, 180, 375, 125);
+        area.setEditable(false);
+        scroll = new JScrollPane(area);
+        scroll.setBounds(10, 180, 377, 125);
+        add(scroll);
     }
     static class ButtonPress implements ActionListener {
         public void actionPerformed(ActionEvent e) {
