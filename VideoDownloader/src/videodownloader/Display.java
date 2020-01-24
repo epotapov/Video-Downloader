@@ -18,7 +18,7 @@ public class Display extends javax.swing.JFrame{ //creates the window
         setSize(500, 340);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        setResizable(true);
+        setResizable(false);
         add(p);
     }
 }
