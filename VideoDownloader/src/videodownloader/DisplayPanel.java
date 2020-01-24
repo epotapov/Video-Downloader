@@ -4,7 +4,9 @@
  * and open the template in the editor.
  */
 package videodownloader;
+import java.awt.Font;
 import java.awt.event.*;
+import java.io.*;
 import javax.swing.*;
 /**
  *
@@ -14,7 +16,7 @@ public class DisplayPanel extends javax.swing.JPanel { //ui stuff
     JButton butt;
     JLabel lab;
     static JTextField text;
-    public static JTextArea area;
+    public JTextArea area;
     static JScrollPane scroll;
     public DisplayPanel() {
         setLayout(null);
