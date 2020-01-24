@@ -21,21 +21,21 @@ public class DisplayPanel extends javax.swing.JPanel { //ui stuff
     public DisplayPanel() {
         setLayout(null);
         butt = new JButton("Download");
-        butt.setBounds(150, 140, butt.getPreferredSize().width, butt.getPreferredSize().height);
+        butt.setBounds(250 - butt.getPreferredSize().width / 2, 140, butt.getPreferredSize().width, butt.getPreferredSize().height);
         add(butt);
         butt.addActionListener(new ButtonPress());
         lab = new JLabel("<html><font size='12' color='red' face='Rockwell'>Stuff Downloader</font></html>");
-        int centered = lab.getPreferredSize().width;
-        lab.setBounds(200 - centered / 2, 30, centered, lab.getPreferredSize().height);
+        lab.setBounds(250 - lab.getPreferredSize().width / 2, 30, lab.getPreferredSize().width, lab.getPreferredSize().height);
         add(lab);
         text = new JTextField("Enter Link");
-        text.setBounds(50, 110, 300, 20);
+        text.setBounds(100, 110, 300, 20);
         add(text);
         area = new JTextArea();
-        area.setBounds(10, 180, 375, 125);
+        area.setBounds(20, 180, 460, 125);
         area.setEditable(false);
+        area.setFont(new Font("arial", Font.PLAIN, 12));
         scroll = new JScrollPane(area);
-        scroll.setBounds(10, 180, 377, 125);
+        scroll.setBounds(20, 180, 460, 125);
         add(scroll);
     }
     static class ButtonPress implements ActionListener {

@@ -15,10 +15,10 @@ public class Display extends javax.swing.JFrame{ //creates the window
     DisplayPanel p = new DisplayPanel();
     public Display() {
         setTitle("Stuff Downloader");
-        setSize(400, 340);
+        setSize(500, 340);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-        setResizable(false);
+        setResizable(true);
         add(p);
     }
 }
