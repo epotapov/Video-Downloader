@@ -23,6 +23,7 @@ class SyncPipe implements Runnable {
             final byte[] buffer = new byte[1024];
             for (int length = 0; (length = istrm.read(buffer)) != -1; ) {
                 out.append(new String(buffer, 0, length));
+                out.setCaretPosition(out.getDocument().getLength());
             }
         }
         catch (Exception e) {
