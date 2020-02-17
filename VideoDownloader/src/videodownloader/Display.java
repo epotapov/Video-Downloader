@@ -12,13 +12,15 @@ import javax.swing.JFrame;
  * @author Edward Potapov
  */
 public class Display extends javax.swing.JFrame{ //creates the window
-    DisplayPanel p = new DisplayPanel();
+    DisplayPanel p;
     public Display() {
         setTitle("Stuff Downloader");
         setSize(500, 340);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
         setResizable(false);
+        p = new DisplayPanel();
         add(p);
+        p.setBounds(0, 0, 500, 340);
     }
 }
