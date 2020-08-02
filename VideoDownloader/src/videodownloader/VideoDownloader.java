@@ -13,6 +13,7 @@ public class VideoDownloader { //contains the code
     static Display d;
     public static void main(String[] args) { //this is not usally how i do stuff i usally don't make a bunch of class so thats weird
         d = new Display();
+        d.setVisible(true);
     }
     public static void download(String Link) {
         Runtime rt = Runtime.getRuntime();

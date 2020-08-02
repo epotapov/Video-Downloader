@@ -4,6 +4,9 @@
  * and open the template in the editor.
  */
 package videodownloader;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.*;
 import java.io.*;
@@ -15,27 +18,39 @@ import javax.swing.*;
 public class DisplayPanel extends javax.swing.JPanel { //ui stuff
     JButton butt;
     JLabel lab;
+    Font f;
     static JTextField text;
     public JTextArea area;
     static JScrollPane scroll;
     public DisplayPanel() {
-        setLayout(null);
-        butt = new JButton("Download");
-        butt.setBounds(250 - butt.getPreferredSize().width / 2, 140, butt.getPreferredSize().width, butt.getPreferredSize().height);
-        add(butt);
-        butt.addActionListener(new ButtonPress());
-        lab = new JLabel("<html><font size='12' color='red' face='Rockwell'>Stuff Downloader</font></html>");
-        lab.setBounds(250 - lab.getPreferredSize().width / 2, 30, lab.getPreferredSize().width, lab.getPreferredSize().height);
-        add(lab);
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+    }
+    void addtoScreen() {
+        lab = new JLabel("Video Downloader");
+        f = new Font("Rockwell", Font.BOLD, 35);
+        lab.setFont(f);
+        lab.setForeground(Color.RED);
         text = new JTextField("Enter Link");
-        text.setBounds(100, 110, 300, 20);
-        add(text);
+        text.setMaximumSize(new Dimension(300, 20));
+        butt = new JButton("Download");
+        butt.addActionListener(new ButtonPress());
         area = new JTextArea();
-        area.setBounds(20, 180, 460, 125);
+        area.setMaximumSize(new Dimension(460, 125));
         area.setEditable(false);
         area.setFont(new Font("arial", Font.PLAIN, 12));
         scroll = new JScrollPane(area);
-        scroll.setBounds(20, 180, 460, 125);
+        scroll.setMaximumSize(new Dimension(460, 125));
+        lab.setAlignmentX(Component.CENTER_ALIGNMENT);
+        text.setAlignmentX(Component.CENTER_ALIGNMENT);
+        butt.setAlignmentX(Component.CENTER_ALIGNMENT);
+        scroll.setAlignmentX(Component.CENTER_ALIGNMENT);
+        add(Box.createRigidArea(new Dimension(0, 25)));
+        add(lab);
+        add(Box.createRigidArea(new Dimension(0, 30)));
+        add(text);
+        add(Box.createRigidArea(new Dimension(0, 15)));
+        add(butt);
+        add(Box.createRigidArea(new Dimension(0, 15)));
         add(scroll);
     }
     static class ButtonPress implements ActionListener {
